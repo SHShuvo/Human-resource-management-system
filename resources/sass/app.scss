@@ -27,14 +27,15 @@ li.nav-item { list-style-type: none;}
     background: rgb(10, 10, 10);
   }
   
-  /* Handle */
-
-  
   /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
 
+  .form-group.required .control-label:after {
+    content:"*";
+    color:red;
+  }
   .abc{
     background-color:#E9ECEF;
     padding: 5px 15px;

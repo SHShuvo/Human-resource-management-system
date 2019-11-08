@@ -111,28 +111,37 @@
                             </ul>
                         </li>
 
-                        <li class="header-menu">
-                            <span>Extra</span>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-book"></i>
-                                <span>Documentation</span>
-                                <span class="badge badge-pill badge-primary">Beta</span>
+                        <li class="sidebar-dropdown">
+                            <a href="#employeeSubmenu" data-toggle="collapse" aria-expanded="false" >
+                                <i class="fas fa-user"></i>
+                                Employee
                             </a>
+                            
+                            <ul class="collapse" style="margin-left:10px" id="employeeSubmenu">
+                               <li>
+                                    <router-link to="/admin/add-employee" href="#">
+                                        <i class="fas fa-user-plus"></i>Add Employee
+                                    </router-link>
+                               </li>
+
+                                <li>
+                                    <router-link to="/admin/view-employee" href="#">
+                                        <i class="fas fa-list"></i>
+                                        Employee List
+                                    </router-link>
+                               </li>
+                            </ul>
                         </li>
+
+                       
+                       
                         <li>
                             <a href="#">
                                 <i class="fa fa-calendar"></i>
                                 <span>Calendar</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-folder"></i>
-                                <span>Examples</span>
-                            </a>
-                        </li>
+                        
                     </ul>
                 </div>
                 <!-- sidebar-menu  -->

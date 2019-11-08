@@ -48,7 +48,9 @@ let routes = [
           { path: 'settings-general', component:require('./components/settings/Settings-general.vue').default},
           { path: 'holiday-list', component:require('./components/settings/Holiday-list.vue').default},
           { path: 'add-department', component:require('./components/settings/AddDepartment.vue').default},
-          { path: 'view-department', component:require('./components/settings/ViewDepartment.vue').default}
+          { path: 'view-department', component:require('./components/settings/ViewDepartment.vue').default},
+          { path: 'add-employee', component:require('./components/employee/AddEmployee.vue').default},
+          { path: 'view-employee', component:require('./components/employee/ViewEmployee.vue').default},
          
       ]
     },

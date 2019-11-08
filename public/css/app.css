@@ -11990,12 +11990,15 @@ li.nav-item {
   background: #0a0a0a;
 }
 
-/* Handle */
-
 /* Handle on hover */
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.form-group.required .control-label:after {
+  content: "*";
+  color: red;
 }
 
 .abc {

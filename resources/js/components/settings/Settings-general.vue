@@ -16,7 +16,7 @@
   margin-bottom: 9px;
   width: 120px !important;
 }
-widget-user-image{ 
+.widget-user-image{ 
   background-position: center center !important;
 }
 
@@ -35,8 +35,8 @@ widget-user-image{
                 </div>
             <div class="card-header bodylines">
                 <form class="form-horizontal">
-                      <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">Company Name</label>
+                      <div class="form-group required">
+                        <label for="name" class="col-sm-4 control-label">Company Name</label>
                         <div class="col-sm-11">
                          <input v-model="form.name" type="text" name="name"
                             placeholder="Name"
@@ -46,7 +46,7 @@ widget-user-image{
                       </div>
                       
                        
-                      <div class="form-group">
+                      <div class="form-group required">
                         <div class="widget-user-image">
                           <img :src="getProfilePhoto()" alt="User Avatar">
                         </div>
@@ -60,7 +60,7 @@ widget-user-image{
                         </div>
                       </div>
 
-                      <div class="form-group">
+                      <div class="form-group required">
                         <label for="email" class="col-sm-2 control-label">Email Address</label>
 
                         <div class="col-sm-11">
@@ -71,7 +71,7 @@ widget-user-image{
                         </div>
                       </div>
 
-                       <div class="form-group">
+                       <div class="form-group required">
                         <label for="address" class="col-sm-2 control-label">Address</label>
 
                         <div class="col-sm-11">
@@ -83,7 +83,7 @@ widget-user-image{
                         </div>
                        </div>
 
-                       <div class="form-group">
+                       <div class="form-group required">
                         <label for="city" class="col-sm-2 control-label">City</label>
 
                         <div class="col-sm-11">
@@ -94,7 +94,7 @@ widget-user-image{
                         </div>
                        </div>
 
-                       <div class="form-group">
+                       <div class="form-group required">
                         <label for="country" class="col-sm-2 control-label">Country</label>
 
                         <div class="col-sm-11">
@@ -105,7 +105,7 @@ widget-user-image{
                         </div>
                        </div>
 
-                       <div class="form-group">
+                       <div class="form-group required">
                         <label for="phone" class="col-sm-2 control-label">Phone</label>
 
                         <div class="col-sm-11">
@@ -116,7 +116,7 @@ widget-user-image{
                         </div>
                        </div>
 
-                        <div class="form-group">
+                        <div class="form-group required">
                         <label for="website" class="col-sm-2 control-label">Website</label>
 
                         <div class="col-sm-11">
@@ -126,10 +126,6 @@ widget-user-image{
                             <has-error :form="form" field="website"></has-error>
                         </div>
                        </div>
-
-                      
-
-                      
                       
                       <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
