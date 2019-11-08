@@ -1,0 +1,79 @@
+ return SetWorkingDays::create([
+
+                'saturday' =>$request['saturday'],
+                'sunday'   =>$request['sunday'],
+                'monday'   =>$request['monday'],
+                'tuesday'  =>$request['tuesday'],
+                'wednesday'=>$request['wednesday'],
+                'thursday' =>$request['thursday'],
+                'friday'=>$request['friday'], 
+            ]);
+
+
+
+class SetWorkingDays extends Model
+{
+    protected $fillable = [
+        'saturday','sunday','monday','tuesday','wednesday','thursday','friday'
+    ];
+} 
+
+public function up()
+    {
+        Schema::create('set_working_days', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('saturday')->default('false');
+            $table->string('sunday')->default('false');
+            $table->string('monday')->default('false');
+            $table->string('tuesday')->default('false');
+            $table->string('wednesday')->default('false');
+            $table->string('thursday')->default('false');
+            $table->string('friday')->default('false');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('set_working_days');
+    }
+
+    CreateSetWorkingDaysTable
+
+    foreach ($request as $key => $value) {
+                
+                if(!$value){
+                    $request->merge([$key=> NULL]);
+                }
+            }
+            
+            $post->update($request->all());
+
+            if(!$request->saturday){
+                $request->merge(['saturday'=> NULL]);
+            }
+            if(!$request->sunday){
+                $request->merge(['sunday'=> NULL]);
+            }
+            if(!$request->monday){
+                $request->merge(['monday'=> NULL]);
+            }
+            if(!$request->tuesday){
+                $request->merge(['tuesday'=> NULL]);
+            }
+            if(!$request->wednesday){
+                $request->merge(['wednesday'=> NULL]);
+            }
+            if(!$request->thursday){
+                $request->merge(['thursday'=> NULL]);
+            }
+
+            if(!$request->friday){
+                $request->merge(['friday'=> NULL]);
+            }
+            
