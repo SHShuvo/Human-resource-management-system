@@ -56,6 +56,16 @@
                       </div>
 
                       <div class="form-group required">
+                        <label for="fatherName" class="col-sm-4 control-label">Father's Name</label>
+                        <div class="col-sm-12">
+                         <input v-model="form.fatherName" type="text" name="fatherName"
+                            placeholder="Father's Name"
+                            class="form-control" :class="{ 'is-invalid': form.errors.has('fatherName') }">
+                            <has-error :form="form" field="fatherName"></has-error>
+                        </div>
+                      </div>
+
+                      <div class="form-group required">
                         <label for="birthDate" class="col-sm-4 control-label">Date of Birth</label>
                         <div class="col-sm-12">
                          <date-picker v-model="form.birthDate" placeholder="Select Date of Birth" lang="en" format="YYYY-MM-DD">
@@ -100,8 +110,12 @@
                         </div>
                       </div>
 
-                    </form>  
+                    </form>
+                      
                 </div>
+
+                
+                
             </div>
 
             <div class="col-md-6">
@@ -168,7 +182,7 @@
                 </div>
 
                 <div class="card-header toplines">
-                <strong>Add Department</strong>
+                <strong>Official Status</strong>
                 </div>
 
                 <div class="card-header">
@@ -197,23 +211,38 @@
 
                         <div class="form-group required">
                            <label for="designation" class="col-sm-4 control-label">Designation</label>
-                        <div class="col-sm-12">
-                            <select v-model="form.designation" class="form-control">
-                                <option value="" selected hidden>Select Designation</option>
-                                <template v-for="department in designationList">
-                                    <option v-for="(designation,index) in department.designation" :key="index">
-                                    {{designation}}
-                                    </option>
-                                </template>
-                            </select>
+                            <div class="col-sm-12">
+                                <select v-model="form.designation" class="form-control">
+                                    <option value="" selected hidden>Select Designation</option>
+                                    <template v-for="department in designationList">
+                                        <option v-for="(designation,index) in department.designation" :key="index">
+                                        {{designation}}
+                                        </option>
+                                    </template>
+                                </select>
+                            </div>
                         </div>
+
+                        <div class="form-group required">
+                            <label for="birthDate" class="col-sm-4 control-label">Joining Date</label>
+                            <div class="col-sm-12">
+                            <date-picker v-model="form.joinDate" placeholder="Select Joining Date" lang="en" format="YYYY-MM-DD">
+                            </date-picker>
+                            </div>
                         </div>
                     </form>
                 </div>
 
             </div>
+                
         </div>
-        
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+              <button class="btn btn-success btn-block" @click="createEmployee()" style="margin:3rem 0rem" >Save</button>
+            </div>
+        </div>
     </div>                         
 </template>
 
@@ -227,6 +256,7 @@
             form: new Form({
                 firstName:'',
                 lastName:'',
+                fatherName:'',
                 birthDate:'', 
                 gender:'',
                 maritalStatus:'',
@@ -239,6 +269,7 @@
                 employeeId:'',
                 department:'',  
                 designation:'',
+                joinDate:'',
             })
             }
         },
@@ -283,6 +314,25 @@
             loadDepartmentList(){
               axios.get('/department').then(({data})=>(this.departmentList=data));
             },
+
+            createEmployee(){
+              this.form.birthDate=moment(this.form.birthDate).format('YYYY-MM-DD');
+              this.form.joinDate=moment(this.form.joinDate).format('YYYY-MM-DD');
+
+              this.form.post('/employee')
+              .then(()=>{
+                //Fire.$emit('afterCreate');
+                toast.fire({
+                  type: 'success',
+                  title: 'New Holiday Created Successfully'
+                })
+                this.$Progress.finish();
+              })
+              .catch(()=>{
+                
+              })
+
+            }
 
         },
 

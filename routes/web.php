@@ -40,6 +40,10 @@ Route::resource('department', 'DepartmentController')->except([
     'create', 'show','edit'
 ]);;
 
+Route::resource('employee', 'EmployeeController')->except([
+    'create', 'show','edit'
+]);;
+
 
 
 Route::get('/admin/{vue_capture?}', function () {return view('admin');})->where('vue_capture', '[\/\w\.-]*');
